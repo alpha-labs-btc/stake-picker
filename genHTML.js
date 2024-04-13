@@ -30,17 +30,17 @@ function csvToHTMLTable(csvData) {
 }
 
 // Read CSV file
-const csvFilePath = path.join(__dirname, 'ticket.csv');
+const csvFilePath = path.join(__dirname, 'winners.csv');
 fs.readFile(csvFilePath, 'utf8', (err, data) => {
     if (err) {
         console.error('Error reading the CSV file:', err);
         return;
     }
     const htmlTable = csvToHTMLTable(data);
-    const markdownContent = `# Data from ticket.csv\n\n${htmlTable}`;
+    const markdownContent = `# Data from winners.csv\n\n${htmlTable}`;
 
     // Save to html.md
-    const mdFilePath = path.join(__dirname, 'README.md');
+    const mdFilePath = path.join(__dirname, 'WINNERS.md');
     fs.writeFile(mdFilePath, markdownContent, err => {
         if (err) {
             console.error('Error writing the Markdown file:', err);
